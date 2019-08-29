@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+
+        .clock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateX(-50%) translateY(-50%);
+            color: purple;
+            font-size: 100px;
+            font-family: Orbitron;
+            letter-spacing: 7px;
+        
+        }
+        </style>
+    </head>
+    <body>
+            <div id="Display" class="clock" onload="clock()"></div>
+    </body>
+
+    <script>
+
+        function clock(){
+
+            var date = new Date();   
+            var hour = date.getHours();
+            var minute = date.getMinutes();
+            var second = date.getSeconds();
+
+            hour = (hour < 10) ? "0" + hour : hour;
+            minute = (minute < 10) ? "0" + minute : minute;
+            second = (second < 10) ? "0" + second : second;
+            var time = hour + ":" +  minute + ":" +second ;
+
+            document.getElementById("Display").innerText = time;
+
+            setTimeout(clock, 1000);
+
+        }
+        clock();
+       
+    </script>
+
+</html>
